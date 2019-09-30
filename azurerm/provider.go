@@ -638,7 +638,7 @@ func providerConfigure(p *schema.Provider) schema.ConfigureFunc {
 		skipProviderRegistration := d.Get("skip_provider_registration").(bool)
 		disableCorrelationRequestID := d.Get("disable_correlation_request_id").(bool)
 
-		client, err := getArmClient(config, skipProviderRegistration, partnerId, disableCorrelationRequestID)
+		client, err := getArmClient(config, skipProviderRegistration, p.TerraformVersion, partnerId, disableCorrelationRequestID)
 		if err != nil {
 			return nil, err
 		}
